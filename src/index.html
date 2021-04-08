@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal Finance</title>
+    <link rel="stylesheet" type="text/css" href="./src/styles/index.css">
+
+</head>
+
+<body>
+<header class="page-header dark-mode">
+    <h1 class="page-title">Personal finance</h1>
+    <button class="btn-mobile-menu">☰</button>
+    <nav class="header_main-menu">
+        <div class="header_main-menu_item">
+            <h2 class="main-menu_item_title">Balance</h2>
+            <div class="balance_number">0</div>
+        </div>
+
+        <div class="header_main-menu_item">
+            <h2 class="main-menu_item_title">Payments</h2>
+            <div class="payments_number">0</div>
+        </div>
+
+        <div class="header_main-menu_item">
+            <h2 class="main-menu_item_title">Income </h2>
+            <div class="income_number">0</div>
+        </div>
+
+        <div class="btn-add-income">
+            <button class="income_add-new">
+                <i class="fas fa-plus-circle"></i>Add new income
+            </button>
+        </div>
+
+    </nav>
+
+</header>
+
+<main class="main">
+    <aside class="aside dark-mode">
+        <form class="datepicker">
+            <div id="datepicker"></div>
+        </form>
+        <div class="history">
+            <h2 class="history_title">All transactions</h2>
+            <ul class="history_list">
+                <li class="history_item clear-history">Transactions no found.</li>
+
+            </ul>
+
+        </div>
+
+    </aside>
+    <section class="content ">
+        <div class="costs__categories">
+            <div class="cost__category category_new" >
+                <button type="button" class="add-category-btn">
+                    <i class="fas fa-plus-circle"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+</main>
+<div class="modal modal-daily-report">
+    <div class="daily-report">
+        <button type="button" class="modal_close">&times;</button>
+        <time class="daily-report__date">day</time>
+        <ul class="daily-report__list">
+            <li class="history_item clear-history">Transactions no found.</li>
+
+        </ul>
+    </div>
+</div>
+
+<div class="modal modal-income" >
+    <form class="modal_form income-form">
+        <button type="button" class="modal_close">&times;</button>
+        <label class="label">Enter your income:</label>
+        <input class="modal-input input-income"  type="number" placeholder="0.01"  min="0.01" step="0.01" required>
+        <button class="modal-btn-add add-income">Add new income</button>
+    </form>
+</div>
+
+<div class="modal " id="category_modal-window">
+    <form class="modal_form category-form">
+        <span class="modal_close">&times;</span>
+        <label class="label">Enter your spend:</label>
+        <input class="modal-input category_spend" type="number" placeholder="0.01" step="0.01" min="0.01" required>
+        <button class="modal-btn-add btn-category-add-spend">Add spend</button>
+    </form>
+</div>
+
+<div class="modal add-new-category new-category_modal">
+    <form class="modal_form">
+        <button type="button" class="modal_close">&times;</button>
+        <label class="label">Enter category's name:</label>
+        <input class="modal-input new-category-name" placeholder="Category's name" type="text" required>
+        <label>
+            <select class="modal-select select-icon">
+                <option>Select icon...</option>
+                <option value="fa-baby">Children</option>
+                <option value="fa-hand-holding-usd">Credit</option>
+                <option value="fa-gift">Gifts</option>
+                <option value="fa-dumbbell">Gym</option>
+                <option value="fa-graduation-cap">Education</option>
+                <option value="fa-stethoscope">Health</option>
+                <option value="fa-home">House</option>
+                <option value="fa-paw">Pets</option>
+                <option value="fa-star">Star</option>
+                <option value="fa-car">Transport</option>
+                <option value="fa-plane">Vacation</option>
+            </select>
+        </label>
+
+        <button class="modal-btn-add btn-add-category">Add new category</button>
+    </form>
+</div>
+
+<div class="modal"></div>
+
+<template class="history-item-template">
+    <li class="history_item">
+        <p class="history_category"></p>
+        <button class="history_delete">&times;</button>
+        <time class="history_date"></time>
+        <p class="history_spend"></p>
+    </li>
+</template>
+
+<template class="category-template">
+    <div class="cost__category">
+        <button class="cost__category_delete">&times;</button>
+        <button type="button" class="category-btn"><i class="fas"></i></button>
+        <h3 class="category-name"></h3>
+        <p class="spend">0 $</p>
+    </div>
+</template>
+
+<script src="./src/js/index.js"></script>
+</body>
+</html>
